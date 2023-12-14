@@ -1,5 +1,7 @@
 package com.bridgelabz.linkedlist;
+import java.util.*;
 
+import com.bridgelabz.datastructure.Node;
 
 public class LinkedList<T>
 {
@@ -181,7 +183,33 @@ public class LinkedList<T>
 				temp = temp.next;
 			}
 		}
-
+        size--;
+	}
+	//---------------------------------- UC-10 ----------------------------------------
+	
+	/*
+	 * @desc:This method sorts the list
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:none
+	 */
+	void sort()
+	{
+		ArrayList<T> list = new ArrayList<>();
+		Node<T> temp = head;
+		int data = 0;
+		while (temp != null) {
+			list.add(temp.data);
+			temp = temp.next;
+		}
+		list.sort(null);
+		head=null;
+		tail=head;
+		for(int i=0;i<list.size();i++)
+		{
+			insertLast(list.get(i));
+		}
 	}
 	
 }
