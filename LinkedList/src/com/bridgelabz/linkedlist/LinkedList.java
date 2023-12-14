@@ -98,4 +98,26 @@ public class LinkedList<T>
 			}
 			
 		}
+	//---------------------------------- UC-6 ----------------------------------------
+		
+	/*
+	 * @desc:This method deletes element at the end of the list
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:none
+	 */
+	void deleteLast() {
+		if (head == null)
+			System.out.println("Can't delete , linked-list is empty\n");
+		else {
+			Node<T> temp = head;
+			while (temp.next.next != null) {
+				temp = temp.next;
+			}
+			temp.next = null;
+			tail = temp;
+			System.out.println("Last node deleted\n");
+		}
+	}
 }
