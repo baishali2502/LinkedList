@@ -78,6 +78,7 @@ public class LinkedList<T>
 		    newnode.next = temp.next;
 		    temp.next = newnode;
 		}
+		size++;
 		
 	}
 	//---------------------------------- UC-5 ---------------------------------------
@@ -96,6 +97,7 @@ public class LinkedList<T>
 				head = head.next;
 				System.out.println("First node deleted\n");
 			}
+			size--;
 			
 		}
 	//---------------------------------- UC-6 ----------------------------------------
@@ -119,7 +121,9 @@ public class LinkedList<T>
 			tail = temp;
 			System.out.println("Last node deleted\n");
 		}
+		size--;
 	}
+	
 
 	//---------------------------------- UC-7 ----------------------------------------
 	
@@ -148,4 +152,36 @@ public class LinkedList<T>
 			return -1;
 		}
 	}
+	//---------------------------------- UC-9 ----------------------------------------
+	
+	/*
+	 * @desc:This method deletes an elem (if present) inside the linked-list
+	 * 
+	 * @params:element to be deleted
+	 * 
+	 * @returns:void
+	 */
+	void deleteByElem(T elem) {
+		if (size == 0) {
+			return;
+		} else {
+			// first node is the node to be deleted
+			if (head.data == elem) {
+				head = head.next;
+				return;
+			}
+			Node<T> prev = head;
+			Node<T> temp = head.next;
+			while (temp != null) {
+				if (temp.data == elem) {
+					prev.next = temp.next;
+					return;
+				}
+				prev = prev.next;
+				temp = temp.next;
+			}
+		}
+
+	}
+	
 }
