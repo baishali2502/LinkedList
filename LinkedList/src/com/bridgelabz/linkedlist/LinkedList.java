@@ -6,7 +6,7 @@ public class LinkedList<T>
 	Node<T> head = null;
 	Node<T> tail = head;
     int size;
-//---------------------------------- UC-1 ---------------------------------------
+//---------------------------------- UC-2 ---------------------------------------
     /*
 	 * @desc:This method inserts new element at the beginning of the list
 	 * 
@@ -49,5 +49,35 @@ public class LinkedList<T>
 			tail = newnode;
 		}
 		size++;
+	}
+	//---------------------------------- UC-4 ---------------------------------------
+	
+	/*
+ 	 * @desc:This method inserts new element at the any position of the list
+ 	 * 
+ 	 * @params:element to be added and position
+ 	 * 
+ 	 * @returns:none
+ 	 */
+	 void insertAtP(T val, int pos) 
+	{
+		if(pos==0)
+		{
+			insertFirst(val);	
+		}
+		else 
+		{
+			int i=0;
+		    Node<T> newnode = new Node<>(val);
+		    Node<T> temp = head;
+		    while(i<pos-1)
+		    {
+		    	temp = temp.next;
+		    	i++;
+		    }
+		    newnode.next = temp.next;
+		    temp.next = newnode;
+		}
+		
 	}
 }
