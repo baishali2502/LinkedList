@@ -120,4 +120,32 @@ public class LinkedList<T>
 			System.out.println("Last node deleted\n");
 		}
 	}
+
+	//---------------------------------- UC-7 ----------------------------------------
+	
+	/*
+	 * @desc:This method searches for an elem and returns it's position(if present)
+	 * 
+	 * @params:element to be searched
+	 * 
+	 * @returns:position of the element inside the linkedlist (if present)
+	 */
+	int search(T elem)
+	{
+		if(size==0)
+			return -1;
+		else
+		{
+			Node<T> temp = head;
+			int pos=0;
+			while(temp!=null)
+			{
+				if(temp.data==elem)
+					return pos;
+				pos++;
+			}
+			// elem not fount
+			return -1;
+		}
+	}
 }
