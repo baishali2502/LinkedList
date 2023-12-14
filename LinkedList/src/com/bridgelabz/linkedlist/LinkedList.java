@@ -80,4 +80,22 @@ public class LinkedList<T>
 		}
 		
 	}
+	//---------------------------------- UC-5 ---------------------------------------
+	 
+	 /*
+		 * @desc:This method deletes element at the beginning of the list
+		 * 
+		 * @params:none
+		 * 
+		 * @returns:none
+		 */
+		void deleteFirst() {
+			if(head==null)
+				System.out.println("Can't delete , linked-list is empty\n");
+			else {
+				head = head.next;
+				System.out.println("First node deleted\n");
+			}
+			
+		}
 }
